@@ -25,8 +25,16 @@ class Team {
 let teams = [];
 let teamId = 0;
 
+onClick('new-team', () => {
+    teams.push(new Team(teamId++, getValue('new-team-name')));
+});
+
 function onClick(id, action) {
     let element = document.getElementById(id);
     element.addEventListener('click', action);
     return element;
+}
+
+function getValue(id) {
+    return document.getElementById(id).value;
 }

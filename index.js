@@ -18,5 +18,15 @@ class Team {
 
     deleteMember(member) {
         let index = this.members.indexOf(member);
+        this.members.splice(index, 1);
     }
+}
+
+let teams = [];
+let teamId = 0;
+
+function onClick(id, action) {
+    let element = document.getElementById(id);
+    element.addEventListener('click', action);
+    return element;
 }

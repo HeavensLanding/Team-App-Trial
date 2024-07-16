@@ -73,4 +73,17 @@ function createDeleteRowButton(team, member) {
         team.members.splice(index, 1);
         drawDOM();
     };
+    return btn;
+}
+
+function createDeleteTeamButton(team) {
+    let btn = document.createElement('button');
+    btn.className = 'btn btn-primary';
+    btn.innerHTML = 'Delete Team';
+    btn.onclick = () => {
+        let index = team.indexOf(team);
+        teams.splice(index, 1);
+        drawDOM();
+    };
+    return btn;
 }

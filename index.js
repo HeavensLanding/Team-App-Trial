@@ -27,6 +27,7 @@ let teamId = 0;
 
 onClick('new-team', () => {
     teams.push(new Team(teamId++, getValue('new-team-name')));
+    drawDOM();
 });
 
 function onClick(id, action) {
@@ -37,4 +38,20 @@ function onClick(id, action) {
 
 function getValue(id) {
     return document.getElementById(id).value;
+}
+
+function drawDOM() {
+    let teamDiv = document.getElementById('teams');
+    clearElement(teamDiv);
+    for (team of teams) {
+        let table = createTeamTable(team);
+        let title = document.createElement('h2');
+        title.innerHTML = team.name;
+        title.appendChild(createDeleteTeamButton(team));
+        teamDiv.appendChild(title);
+        teamDiv.appendChild(table);
+        for (member of team.members) {
+            createMemberRow(team, table, member);
+        }
+    }
 }

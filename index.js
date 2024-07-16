@@ -9,7 +9,7 @@ class Team {
     constructor(id, name) {
         this.id = id;
         this.name = name;
-        this.members = {};
+        this.members = [];
     }
 
     addMember(member) {
@@ -59,7 +59,7 @@ function drawDOM() {
 function createMemberRow(team, table, member) {
     let row = table.insertRow(2);
     row.insertCell(0).innerHTML = member.name;
-    row.insertcell(1).innerHTML = member.position;
+    row.insertCell(1).innerHTML = member.position;
     let actions = row.insertCell(2);
     actions.appendChild(createDeleteRowButton(team, member));
 }
@@ -81,7 +81,7 @@ function createDeleteTeamButton(team) {
     btn.className = 'btn btn-primary';
     btn.innerHTML = 'Delete Team';
     btn.onclick = () => {
-        let index = team.indexOf(team);
+        let index = teams.indexOf(team);
         teams.splice(index, 1);
         drawDOM();
     };

@@ -55,3 +55,12 @@ function drawDOM() {
         }
     }
 }
+
+function createMemberRow(team, table, member) {
+    let row = table.insertRow(2);
+    row.insertCell(0).innerHTML = member.name;
+    row.insertcell(1).innerHTML = member.position;
+    let actions = row.insertCell(2);
+    actions.appendChild(createDeleteRowButton(team, member));
+}
+

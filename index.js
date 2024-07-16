@@ -64,3 +64,13 @@ function createMemberRow(team, table, member) {
     actions.appendChild(createDeleteRowButton(team, member));
 }
 
+function createDeleteRowButton(team, member) {
+    let btn = document.createElement('button');
+    btn.className = 'btn btn-primary';
+    btn.innerHTML = 'Delete';
+    btn.onclick = () => {
+        let index = team.members.indexOf(member);
+        team.members.splice(index, 1);
+        drawDOM();
+    };
+}
